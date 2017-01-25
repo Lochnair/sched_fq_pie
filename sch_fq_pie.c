@@ -510,8 +510,6 @@ begin:
 		goto out;
 
 	rate = q->flow_max_rate; //it's ~0U in default
-	if (skb->sk && skb->sk->sk_state != TCP_TIME_WAIT)
-		rate = min(skb->sk->sk_pacing_rate, rate);
 
 	/* If rate has changed, update f->time_next_packet. */
 	if (rate != ~0U) {
