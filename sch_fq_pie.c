@@ -470,7 +470,7 @@ begin:
 		head = &q->old_flows;
 		if (!head->first) {
 			if (q->time_next_delayed_flow != ~0ULL)
-				qdisc_watchdog_schedule_ns(&q->watchdog,
+				codel_watchdog_schedule_ns(&q->watchdog,
 					q->time_next_delayed_flow, false);
 			return NULL;
 		}
